@@ -1,6 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 
+// seems like the main typescript difference
 type LayoutProps = {
   gap: number;
 };
@@ -58,6 +59,9 @@ const StyledSquare = styled.button`
   padding: 0px;
   font-size: 24px;
   font-weight: bold;
+  /* &:hover {
+    background-color: red;
+  } */
 `;
 
 function Square() {
