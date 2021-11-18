@@ -10,6 +10,11 @@ const Row = styled.div<LayoutProps>`
   flex-direction: row;
   gap: ${(props) => props.gap}px;
 `;
+const Column = styled.div<LayoutProps>`
+  display: flex;
+  flex-direction: column;
+  gap: ${(props) => props.gap}px;
+`;
 
 function Game() {
   return (
