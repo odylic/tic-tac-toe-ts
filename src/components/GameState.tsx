@@ -1,3 +1,5 @@
+import React, { useState } from "react";
+
 export type Value = "X" | "O" | null;
 
 // the array of values that will be pushed in when clicked
@@ -36,4 +38,31 @@ function calculateWinner(boardState: BoardState) {
       return boardState[a];
   }
   return null;
+}
+
+// keep history of all boardstates
+export type GameState = {
+  history: BoardState[];
+  step: number;
+};
+
+// create a hook
+export function useGameState() {
+  const [gameState, setGameState] = useState<GameState>({
+    // starts the initial state with 9 null values
+    history: [createBoardState()],
+    step: 0,
+  });
+
+  // gets the current step
+  const current = gameState.history[gameState.step];
+  // which turn
+  const xIsNext = gameState.step % 2 === 0;
+  const winner = calculateWinner(current);
+
+  return {
+    gameState,
+    current,
+    xIsNext,
+  };
 }
