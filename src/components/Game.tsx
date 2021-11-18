@@ -18,11 +18,13 @@ const Column = styled.div<LayoutProps>`
 
 function Game() {
   return (
-    <Column gap={20}>
-      <div>Like</div>
-      <div>Share</div>
-      <div>Subscribe</div>
-    </Column>
+    <Row gap={20}>
+      <Column gap={20}>
+        <div>Status</div>
+        <Board />
+      </Column>
+      <Log />
+    </Row>
   );
 }
 
