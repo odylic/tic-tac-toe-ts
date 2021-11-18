@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+export {};
 
 export type Value = "X" | "O" | null;
 
@@ -59,6 +60,21 @@ export function useGameState() {
   // which turn
   const xIsNext = gameState.step % 2 === 0;
   const winner = calculateWinner(current);
+
+  function handleClick(square: number) {
+    const history = gameState.history.slice(0, gameState.step + 1);
+    const boardState = history[history.length - 1];
+    if (calculateWinner(boardState) || boardState[square]) {
+      return;
+    }
+    const newBoardState = boardState.slice();
+    newBoardState[square] = gameState.step % 2 === 0 ? "X" : "O";
+    history.push(newBoardState);
+    setGameState({
+      history: history,
+      step: history.length - 1,
+    });
+  }
 
   return {
     gameState,
