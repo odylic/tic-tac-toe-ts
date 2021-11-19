@@ -76,7 +76,9 @@ export function useGameState() {
     });
   }
 
-  function jumpTo
+  function jumpTo(step: number) {
+    setGameState
+  }
 
   return {
     gameState,
