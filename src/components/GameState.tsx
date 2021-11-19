@@ -76,7 +76,7 @@ export function useGameState() {
     });
   }
 
-  function 
+  function jumpTo
 
   return {
     gameState,
