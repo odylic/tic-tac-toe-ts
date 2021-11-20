@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
-import { useGameState } from "./GameState";
+import { BoardState, useGameState } from "./GameState";
 
 // seems like the main typescript difference
 type LayoutProps = {
@@ -33,6 +33,11 @@ function Game() {
     </Row>
   );
 }
+
+type Boardprops = {
+  board: BoardState;
+  onClick: (square: number) => void;
+};
 
 function Board() {
   return (
