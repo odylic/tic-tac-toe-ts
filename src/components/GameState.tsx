@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 export {};
 
 export type Value = "X" | "O" | null;
@@ -87,5 +87,8 @@ export function useGameState() {
     gameState,
     current,
     xIsNext,
+    winner,
+    handleClick,
+    jumpTo,
   };
 }

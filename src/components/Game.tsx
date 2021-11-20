@@ -19,10 +19,13 @@ const Column = styled.div<LayoutProps>`
 `;
 
 function Game() {
+  const { gameState, current, xIsNext, jumpTo, winner, handleClick } =
+    useGameState();
   return (
     <Row gap={20}>
       <Column gap={20}>
-        <div>Status</div>
+        <div>
+        </div>  
         <Board />
       </Column>
       <Log />
