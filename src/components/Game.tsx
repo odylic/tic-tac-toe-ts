@@ -1,5 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
+import { useGameState } from "./GameState";
 
 // seems like the main typescript difference
 type LayoutProps = {
