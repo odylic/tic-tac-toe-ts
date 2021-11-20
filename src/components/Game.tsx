@@ -40,6 +40,12 @@ type Boardprops = {
 };
 
 function Board({ board, onClick }: Boardprops) {
+  const createProps = (square: number): SquareProps => {
+    return {
+      value: board[square],
+      onClick: () => onClick(square),
+    };
+  };
   return (
     <Column gap={0}>
       <Row gap={0}>
