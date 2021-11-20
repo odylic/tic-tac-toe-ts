@@ -39,7 +39,7 @@ type Boardprops = {
   onClick: (square: number) => void;
 };
 
-function Board() {
+function Board({ board, onClick }: Boardprops) {
   return (
     <Column gap={0}>
       <Row gap={0}>
