@@ -25,7 +25,8 @@ function Game() {
     <Row gap={20}>
       <Column gap={20}>
         <div>
-        </div>  
+          {winner ? `Winner ${winner}` : `Next Player ${xIsNext ? "X" : "O"}`}
+        </div>
         <Board />
       </Column>
       <Log />
