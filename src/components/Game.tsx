@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
-import { BoardState, useGameState } from "./GameState";
+import { BoardState, useGameState, Value } from "./GameState";
 
 // seems like the main typescript difference
 type LayoutProps = {
@@ -27,7 +27,7 @@ function Game() {
         <div>
           {winner ? `Winner ${winner}` : `Next Player ${xIsNext ? "X" : "O"}`}
         </div>
-        <Board />
+        <Board board={current} onClick={handleClick} />
       </Column>
       <Log />
     </Row>
@@ -74,8 +74,13 @@ const StyledSquare = styled.button`
   } */
 `;
 
-function Square() {
-  return <StyledSquare>X</StyledSquare>;
+type SquareProps = {
+  value: Value;
+  onClick: () => void;
+};
+
+function Square(props: SquareProps) {
+  return <StyledSquare onClick={props.onClick}>{props.value} </StyledSquare>;
 }
 
 function Log() {
