@@ -29,7 +29,7 @@ function Game() {
         </div>
         <Board board={current} onClick={handleClick} />
       </Column>
-      <Log />
+      <Log history={gameState.history} jumpTo={jumpTo} />
     </Row>
   );
 }
@@ -92,7 +92,12 @@ function Square(props: SquareProps) {
   return <StyledSquare onClick={props.onClick}>{props.value} </StyledSquare>;
 }
 
-function Log() {
+type LogProps = {
+  history: BoardState[];
+  jumpTo: (step: number) => void;
+};
+
+function Log(props: LogProps) {
   return (
     <ol>
       <li>
