@@ -100,9 +100,15 @@ type LogProps = {
 function Log(props: LogProps) {
   return (
     <ol>
-      <li>
-        <button>Go to Move</button>
-      </li>
+      {props.history.map((_, index) => {
+        return (
+          <li key={index}>
+            <button onClick={() => props.jumpTo(index)}>
+              Go to {index === 0 ? "start" : `move #${index}`}
+            </button>
+          </li>
+        );
+      })}
     </ol>
   );
 }
